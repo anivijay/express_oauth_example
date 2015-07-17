@@ -11,7 +11,17 @@ module.exports = function () {
             callbackURL: "http://localhost:3000/auth/google/callback"
         },
         function(accessToken, refreshToken, profile, done) {
-            done(null, profile);
+
+            var user = {};
+            user.email = profile.emails[0].value;
+            user.image = profile._json.image.url;
+            user.displayName = profile.displayName;
+
+            user.google = {};
+            user.google.id = profile.id;
+            user.google.token = accessToken;
+            console.log("Profile:"+profile)
+            done(null, user);
             //User.findOrCreate({ googleId: profile.id }, function (err, user) {
             //  return done(err, user);
             //});
