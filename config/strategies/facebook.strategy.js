@@ -19,6 +19,7 @@ module.exports = function () {
                         'google.id': req.user.google.id
                     };
                 } else if (req.user.twitter) {
+                    console.log('twitter');
                     var query = {
                         'twitter.id': req.user.twitter.id
                     };
@@ -50,8 +51,7 @@ module.exports = function () {
                         var user = new User;
 
                         //user.email = profile.emails[0].value;
-                        //user.image =
-                        //    profile._json.profile_image_url;
+                        //user.image = profile._json.profile_image_url;
                         user.displayName = profile.displayName;
 
                         user.facebook = {};

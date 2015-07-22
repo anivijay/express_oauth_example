@@ -14,24 +14,26 @@ var Facebook = function (facebookKey, facebookSecret) {
     );
     var getImage = function(userKey, done) {
         oauth.get(
-            'https://graph.facebook.com/v2.3/me/picture?redirect=false&type=large',
+            'https://graph.facebook.com/v2.4/me/picture?redirect=false&type=large',
             userKey, //test user token
             function (e, results, res){
-                //console.log('hi');
+                console.log('hi');
                 if (e) console.error('error: ' + e);
-                //console.log(res);
-                results = JSON.parse(results)
-                done(results.data.url);
+                console.log("res"+res);
+                console.log("results"+results);
+                results = JSON.parse(results);
+                console.log("Parse results url"+results.data.url);
+                done(results.data);
             });
     }
     var getFriends = function(userKey, done) {
         oauth.get(
-            'https://graph.facebook.com/v2.3/me/friends?redirect=false',
+            'https://graph.facebook.com/v2.4/me/friends?redirect=false',
             userKey, //test user token
             function (e, results, res){
-                //console.log('hi');
+                console.log('hi');
                 if (e) console.error('error: ' + e);
-                //console.log(res);
+                console.log(res);
                 results = JSON.parse(results)
                 console.log(results.data);
                 done(results.summary);
@@ -41,7 +43,6 @@ var Facebook = function (facebookKey, facebookSecret) {
         getImage: getImage,
         getFriends: getFriends
     }
-
 }
 
 
