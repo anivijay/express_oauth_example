@@ -18,6 +18,8 @@
     <%if(user.facebook){%>
         <p>There is a facebook image</p>
         <img src="<%=user.facebook.image%>">
+        <p>The last tweet</p>
+        <%=user.twitter.lastPost%>
     <%}%>
         <p>I have <%=user.facebook.friends%> friends</p>
     <div>

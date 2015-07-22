@@ -17,12 +17,12 @@ var Facebook = function (facebookKey, facebookSecret) {
             'https://graph.facebook.com/v2.4/me/picture?redirect=false&type=large',
             userKey, //test user token
             function (e, results, res){
-                console.log('hi');
+                //console.log('hi');
                 if (e) console.error('error: ' + e);
-                console.log("res"+res);
-                console.log("results"+results);
+                //console.log("res"+res);
+                //console.log("results"+results);
                 results = JSON.parse(results);
-                console.log("Parse results url"+results.data.url);
+                //console.log("Parse results url"+results.data.url);
                 done(results.data);
             });
     }
@@ -31,11 +31,11 @@ var Facebook = function (facebookKey, facebookSecret) {
             'https://graph.facebook.com/v2.4/me/friends?redirect=false',
             userKey, //test user token
             function (e, results, res){
-                console.log('hi');
+                //console.log('hi');
                 if (e) console.error('error: ' + e);
-                console.log(res);
+                //console.log(res);
                 results = JSON.parse(results)
-                console.log(results.data);
+                //console.log(results.data);
                 done(results.summary);
             });
     }
